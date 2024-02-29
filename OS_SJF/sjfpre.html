@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="/favicon_io/favicon.ico"
+      type="image/x-icon"
+      sizes="180x180"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad:wght@500&family=Kalnia&family=Kanit&family=Noto+Sans+Thai:wght@500&family=Noto+Sans:wght@300&family=Playfair+Display:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Shortest-Job-First</title>
+  </head>
+
+  <body>
+    <div class="conbox">
+      <!-- header -->
+      <div class="nav">
+        <div class="navleft">
+          <h1>Shortest-Job-First</h1>
+          <h4>preemptive</h4>
+        </div>
+        <div class="navright">
+          <div class="cpustatus">
+            <h3>CPU : <span id="cpustatus"></span></h3>
+          </div>
+          <div class="memory" id="memory-container">
+            <h3>Memory : 512MB  (100%)</h3>
+          </div>
+          <div class="time" id="clock-container">
+            <h3>Clock : 0</h3>
+          </div>
+        </div>
+      </div>
+      <!-- container -->
+      <div class="container">
+        <div class="box1">
+          <div class="nav">
+            <h2>Job Queue</h2>
+            <div class="bt">
+             <!-- HTML -->
+              <input type="button" value="Add process" class="add" id="add"/>
+              <input type="button" value="Reset" class="reset" id="reset" onclick="reset()"/>
+            </div>
+          </div>
+
+          <div class="pcbtable" id="jobQ">
+            <table>
+              <thead>
+                <tr>
+                  <th>Process name</th>
+                  <th>Arrival Time</th>
+                  <th>Burst Time</th>
+                  <th>Memory</th>
+                  <th>Waitting Time</th>
+                  <th>Status Process</th>
+                </tr>
+              </thead>
+              <tbody id="process-tbody">
+                
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- --------------------------------------------- -->
+        <div class="box2">
+          <div class="xready">
+            <div class="name">
+              <h2>Ready Queue</h2>
+            </div>
+            <div class="readytable">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Process name</th>
+                    <th>Arrival Time</th>
+                    <th>Burst Time</th>
+                    <th>Waitting Time</th>
+                  </tr>
+                </thead>
+                <tbody id="ready-tbody">
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        </div>
+        <div class="box3">
+          <div class="io">
+            <div class="name">
+              <h2>I/O</h2>
+              <div class="iobutton">
+                <input type="button" value="Add" class="addio"  id="addio"/>
+                <input type="button" value="Close" class="closeio" id="closeio"/>
+              </div>
+            </div>
+            <div class="iotable">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Process name</th>
+                    <th>Running IO</th>
+                    <th>Respond Time</th>
+                    <th>Status Process</th>
+                  </tr>
+                </thead>
+                <tbody id="io-tbody">
+             
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="ioreadytable">
+            <div class="name">
+              <h2>IO Queue</h2>
+            </div>
+            <div class="iotable">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Process name</th>
+                    <th>Running IO</th>
+                    <th>Respond Time</th>
+                  </tr>
+                </thead>
+                <tbody id="ioQ-tbody">
+             
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container2">
+      <div class="leftbox">
+        <div class="hdtermi">
+          <h2>Terminate</h2>
+        </div>
+        <div class="termitable">
+          <table>
+            <thead>
+              <tr>
+                <th>Process name</th>
+                <th>Arrival Time</th>
+                <th>Burst Time</th>
+                <th>Running IO</th>
+                <th>Respond Time</th>
+                <th>Memory</th>
+                <th>Waitting Time</th>
+                <th>Turnaround Time</th>
+                <th>Status Process</th>
+              </tr>
+            </thead>
+            <tbody id="terminate">
+              
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="rightbox">
+        <div class="hdcontro">
+          <h2>Controler</h2>
+        </div>
+        <div class="controbody">
+          <!-- <div style="display: flex;">Process Running : &nbsp;
+            <div id="process-running"></div>
+          </div> -->
+          <div style="display: flex;">Avg Running IO : &nbsp;
+            <div id="avg-runningio"></div>
+          </div>
+          <div style="display: flex;">Avg Respond Time : &nbsp;
+            <div id="avg-respond"></div>
+          </div>
+          <div style="display: flex;">Avg Waiting : &nbsp;
+            <div id="avg-waiting"></div>
+          </div>
+          <div style="display: flex;">Avg Turnaround : &nbsp;
+            <div id="avg-turnaround"></div>
+          </div>
+        </div>
+    </div>
+    </div>
+
+    <script type="module" src="./Main.js"></script>
+  </body>
+</html>

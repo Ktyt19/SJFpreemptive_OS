@@ -1,0 +1,389 @@
+* {
+   margin: 0;
+   padding: 0;
+   
+}
+
+body {
+   background: rgb(126, 125, 127);
+}
+
+.conbox {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 95dvh;
+   border-radius: 10px;
+   margin: 0px 10px;
+
+}
+
+.conbox .nav {
+   display: flex;
+   background: white;
+   width: 100%;height: 10%;
+   align-items: center;
+   justify-content: space-between;
+   border-radius: 10px;
+   margin-bottom: 10px;
+   border: 5px solid black;
+}
+.nav .navleft{
+   margin-left: 20px;
+}
+.nav .navright{
+   display: flex;
+   gap: 20px;
+   margin-right: 20px;
+}
+
+
+
+
+
+
+.container {
+   display: flex;
+   flex-direction: row;
+   height: 80%;
+   width: 100%;
+   gap: 10px;
+}
+
+/* 111111111111111111111111111 */
+.box1 {
+   height: 100%;
+   width: 50%;
+   padding: 10px;
+   background: rgb(255, 255, 255);
+   border-radius: 10px;
+   border: 3px solid black;
+}
+
+.box1 .pcbtable {
+   overflow-y: scroll;
+   width: 100%;
+   height: 65dvh;
+}
+
+.box1 .pcbtable table {
+   overflow-y: scroll;
+   width: 100%;
+   border-bottom: 2px solid black;
+}
+
+.box1 .pcbtable table thead {
+   position: sticky;
+   top: 0;
+   z-index: 1;
+   background: rgb(126, 125, 127);
+   font-size: 20px;
+   height: 60px;
+
+}
+
+.box1 .pcbtable table tbody tr {
+   height: 40px;
+   background: rgb(199, 199, 199);
+   font-size: 15px;
+}
+
+.box1 .nav {
+   border: 3px solid black;
+}
+
+.box1 .nav .bt input {
+   width: 80px;
+   height: 30px;
+}
+
+.box1 .nav h2 {
+   margin-left: 10px;
+}
+
+.box1 .nav .bt {
+   margin-right: 10px;
+}
+
+/* ------------------------ */
+.gra{
+   background: rgb(144, 166, 178);
+}
+.gre{
+   background: rgb(7, 160, 7);
+}
+.or{
+   background: rgb(255, 162, 0);
+}
+.yel{
+   background: rgb(255, 234, 0);
+   color: rgb(0, 0, 0);
+}
+.red{
+   background: rgb(206, 75, 75);
+}
+.texred{
+   color: rgb(255, 0, 0);
+}
+.texgre{
+   color: rgb(8, 132, 8);
+}
+.add{
+   background: green;
+}
+.reset{
+   background: yellow;
+}
+.add{
+   background: rgb(4, 170, 4);
+   color: white;
+   border: none;
+   width: 90px;
+   padding: 3px;
+   border-radius: 10px;
+}
+.termi {
+   background: rgb(172, 4, 4);
+   color: white;
+   border: none;
+   width: 90px;
+   padding: 3px;
+   border-radius: 10px;
+}
+.reset {
+   background: rgb(184, 184, 3);
+   color: rgb(0, 0, 0);
+   border: none;
+   width: 90px;
+   padding: 3px;
+   border-radius: 10px;
+}
+/* -------------------------------- */
+.box3 {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   width: 25%;
+   padding: 10px;
+   background: rgb(255, 255, 255);
+   margin-right: 10px;
+   border-radius: 10px;
+   border: 3px solid black;
+   gap: 5px;
+}
+
+.box3 .name{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px 0px;
+      height: 30px;
+      border: 3px solid black;
+      font-size: 15px;
+      border-radius: 10px;
+}
+
+/* 22222222222222222222222222 */
+.box2 {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   width: 25%;
+   padding: 10px;
+   background: rgb(255, 255, 255);
+   border-radius: 10px;
+   border: 3px solid black;
+   gap: 5px;
+}
+
+.box2 .xready {
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+   background: rgb(255, 255, 255);
+
+}
+
+.box2 .xready .readytable table {
+   width: 100%;
+   border-bottom: 2px solid black;
+}
+
+.readytable {
+   overflow-y: scroll;
+   width: 100%;
+   height: 85%;
+}
+
+.readytable table thead {
+   position: sticky;
+   top: 0;
+   z-index: 1;
+   height: 50px;
+   background: rgb(126, 125, 127);
+}
+
+.readytable table tbody tr {
+   width: 100%;
+   height: 35px;
+   background: rgb(199, 199, 199);
+}
+
+.name {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 5px 0px;
+   height: 10%;
+   border: 3px solid black;
+   font-size: 15px;
+   border-radius: 10px;
+}
+
+.name h2 {
+   margin-left: 10px;
+}
+
+.name .iobutton {
+   margin-right: 10px;
+}
+
+.box2 .io {
+   /* overflow-y: scroll; */
+   height: 50%;
+   border-radius: 10px;
+   background: rgb(255, 255, 255);
+}
+.iobutton input:hover{
+   filter: brightness(120%);
+}
+.iobutton .addio {
+   background: rgb(4, 170, 4);
+   color: white;
+   border: none;
+   width: 60px;
+   padding: 3px;
+   border-radius: 10px;
+}
+
+.iobutton .closeio {
+   background: rgb(207, 3, 3);
+   color: white;
+   border: none;
+   width: 60px;
+   padding: 3px;
+   border-radius: 10px;
+}
+
+.iotable {
+   overflow-y: scroll;
+   width: 100%;
+   height: 30dvh;
+}
+
+.iotable table {
+   width: 100%;
+   border-bottom: 2px solid black;
+}
+
+.iotable table thead {
+   position: sticky;
+   top: 0;
+   z-index: 1;
+   height: 50px;
+   background: rgb(126, 125, 127);
+}
+
+.iotable table tbody tr {
+   height: 35px;
+   background: rgb(199, 199, 199);
+}
+
+
+/* ------------------------------------------ */
+
+.container2{
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+   height: 40dvh;
+   margin-left: 10px;
+   margin-bottom: 50px;
+}
+/* lllllllllllll */
+.container2 .leftbox{
+   background: white;
+   border: 3px solid black;
+   border-radius: 10px;
+   padding: 10px;
+   height: 100%;
+   width: 75%;
+
+}
+.container2 .leftbox .hdtermi{
+   display: flex;
+   align-items: center;
+   margin: 5px;
+   height: 10%;
+   border: 3px solid black;
+   font-size: 15px;
+   border-radius: 10px;
+   margin-bottom: 10px;
+}
+.container2 .leftbox .hdtermi h2{
+   margin-left: 10px;
+}
+.leftbox .termitable {
+   height: 30dvh;
+   overflow-y: scroll;
+   width: 100%;
+}
+.leftbox .termitable table{
+   width: 100%;
+}
+.leftbox .termitable table thead{
+   position: sticky;
+   top: 0;
+   z-index: 1;
+   height: 50px;
+   background: rgb(126, 125, 127);
+}
+.leftbox .termitable table tbody tr{
+   height: 35px;
+   background: rgb(199, 199, 199);
+}
+/* rrrrrrrrrrrrrr */
+.container2 .rightbox{
+   background: white;
+   border: 3px solid black;
+   border-radius: 10px;
+   padding: 10px;
+   height: 100%;
+   width: 20%;
+}
+.container2 .rightbox .hdcontro{
+   display: flex;
+   align-items: center;
+   height: 10%;
+   border: 3px solid black;
+   font-size: 15px;
+   border-radius: 10px;
+   margin-bottom: 10px;
+}
+.container2 .rightbox .hdcontro h2{
+   margin-left: 10px;
+}
+.rightbox .controbody{
+   height: 30dvh;
+   background: rgb(199, 199, 199);
+   margin: 0px 10px;
+   font-size: 19px;
+}
+
+
+table tbody tr td{
+   padding-left: 5px;
+}
+
+
