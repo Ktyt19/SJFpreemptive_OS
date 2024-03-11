@@ -16,18 +16,25 @@
       href="https://fonts.googleapis.com/css2?family=Afacad:wght@500&family=Kalnia&family=Kanit&family=Noto+Sans+Thai:wght@500&family=Noto+Sans:wght@300&family=Playfair+Display:ital,wght@1,500&display=swap"
       rel="stylesheet"
     />
+    <!-- Include SweetAlert CSS and JS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
+
     <title>Shortest-Job-First</title>
   </head>
 
   <body>
+    
     <div class="conbox">
       <!-- header -->
       <div class="nav">
         <div class="navleft">
-          <h1>Shortest-Job-First</h1>
-          <h4>preemptive</h4>
+          <h1>Shortest-Job-First (Preemptive)</h1>
         </div>
         <div class="navright">
+          <!-- <div class="processrun" >
+            <h3>Process : <span id="runprocess"> - </span></h3>
+          </div> -->
           <div class="cpustatus">
             <h3>CPU : <span id="cpustatus"></span></h3>
           </div>
@@ -46,8 +53,17 @@
             <h2>Job Queue</h2>
             <div class="bt">
              <!-- HTML -->
+              <!-- <input type="button" value="Add process" class="add" id="add"/> -->
               <input type="button" value="Add process" class="add" id="add"/>
-              <input type="button" value="Reset" class="reset" id="reset" onclick="reset()"/>
+              <!-- <input type="button" value="Reset" class="reset" id="reset" onclick="reset()"/> -->
+
+              <button value="Reset" class="reset" id="reset" onclick="reset()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" class="svg-icon"><g stroke-width="1.5" stroke-linecap="round" stroke="#5d41de"><circle r="2.5" cy="10" cx="10"></circle><path fill-rule="evenodd" d="m8.39079 2.80235c.53842-1.51424 2.67991-1.51424 3.21831-.00001.3392.95358 1.4284 1.40477 2.3425.97027 1.4514-.68995 2.9657.82427 2.2758 2.27575-.4345.91407.0166 2.00334.9702 2.34248 1.5143.53842 1.5143 2.67996 0 3.21836-.9536.3391-1.4047 1.4284-.9702 2.3425.6899 1.4514-.8244 2.9656-2.2758 2.2757-.9141-.4345-2.0033.0167-2.3425.9703-.5384 1.5142-2.67989 1.5142-3.21831 0-.33914-.9536-1.4284-1.4048-2.34247-.9703-1.45148.6899-2.96571-.8243-2.27575-2.2757.43449-.9141-.01669-2.0034-.97028-2.3425-1.51422-.5384-1.51422-2.67994.00001-3.21836.95358-.33914 1.40476-1.42841.97027-2.34248-.68996-1.45148.82427-2.9657 2.27575-2.27575.91407.4345 2.00333-.01669 2.34247-.97026z" clip-rule="evenodd"></path></g></svg>
+              <span class="lable">Reset</span>
+              </button>
+
+
+
             </div>
           </div>
 
@@ -55,7 +71,7 @@
             <table>
               <thead>
                 <tr>
-                  <th>Process name</th>
+                  <th class="">Process name</th>
                   <th>Arrival Time</th>
                   <th>Burst Time</th>
                   <th>Memory</th>

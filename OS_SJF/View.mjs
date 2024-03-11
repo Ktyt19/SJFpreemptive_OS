@@ -13,53 +13,56 @@ class View {
     this.avgrespond = document.getElementById('avg-respond');
     this.avgwaiting = document.getElementById('avg-waiting');
     this.avgturnaround = document.getElementById('avg-turnaround');
+    // this.runpro = document.getElementById("runprocess");
   }
-  renderProcesses(processes) {
+  renderProcesses(processes, runprocess) {
     this.cpustatus.innerHTML = ''
-    if (processes.length > 0) {
+    // this.runpro.innerHTML = ''
+    if (runprocess.length > 0) {
       this.cpustatus.className = 'texred'
-      this.cpustatus.innerHTML = 'Running'
+      this.cpustatus.innerHTML = `${runprocess[0].process}`
+      // this.runpro.innerHTML = `${runprocess[0].process}`
     }
     else {
       this.cpustatus.innerHTML = 'Idle'
       this.cpustatus.className = 'texgre'
     }
     this.processesContainer.innerHTML = '';
-      
-      processes.forEach(process => {
-        const processElement = document.createElement('tr');
-        const percentmemory = (process.memory * 100 / 512).toFixed(1);
-        // ตรวจสอบสถานะและกำหนด classname
-        let statusClass = '';
-        switch (process.status) {
-          case 'Running':
-            statusClass = 'gre';
-            break;
-          case 'Waiting':
-            statusClass = 'or';
-            break;
-          case 'Ready':
-            statusClass = 'yel';
-            break;
-          case 'New':
-            statusClass = 'gra';
-            break;
-        }
-        processElement.innerHTML = `<td>${process.process}</td>
+
+    processes.forEach(process => {
+      const processElement = document.createElement('tr');
+      const percentmemory = (process.memory * 100 / 512).toFixed(1);
+      // ตรวจสอบสถานะและกำหนด classname
+      let statusClass = '';
+      switch (process.status) {
+        case 'Running':
+          statusClass = 'gre';
+          break;
+        case 'Waiting':
+          statusClass = 'or';
+          break;
+        case 'Ready':
+          statusClass = 'yel';
+          break;
+        case 'New':
+          statusClass = 'gra';
+          break;
+      }
+      processElement.innerHTML = `<td>${process.process}</td>
                                   <td>${process.arrival}</td>
                                   <td>${process.burstTime}</td>
                                   <td>${process.memory}MB (${percentmemory}%)</td>
                                   <td>${process.waitting}</td>
                                   <td class="${statusClass}">${process.status}</td>`;
 
-        this.processesContainer.appendChild(processElement);
-      });
+      this.processesContainer.appendChild(processElement);
+    });
   }
   renderClock(clock) {
     this.clockContainer.innerHTML = `<h3>Clock: ${clock}</h3>`;
   }
   rendermemory(memory) {
-    const memoryPercentage = (memory * 100 / 512).toFixed(2);
+    const memoryPercentage = (100 -(memory * 100 / 512)).toFixed(2);
     this.memoryContainer.innerHTML = `<h3>Memory: ${memory}MB (${memoryPercentage}%)</h3>`;
 
   }

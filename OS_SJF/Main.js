@@ -6,7 +6,6 @@ import Controller from './Controller.mjs';
 const model = new Model();
 const view = new View();
 let controller = new Controller(model, view);
-let num = 1;
 
 controller.runClock();
 
@@ -17,8 +16,7 @@ document.getElementById('reset').addEventListener('click',reset)
 
 
 function clickadd() {
-  controller.addProcess(num);
-  num++;
+  controller.addProcess();
 }
 function clickaddio() {
   controller.addIO();

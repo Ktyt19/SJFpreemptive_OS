@@ -7,18 +7,28 @@ class Model {
     this.clock = 0;
     this.maxSize = 16;
     this.memory = 512;
+    this.num = 1
   }
   // clock
   updateClock() {
     this.clock++;
   }
   // job Queue
-  addProcess(num) {
+  addProcess() {
+    const burstTime = Math.floor(Math.random() * 11) + 5;
+    const memoryuse = Math.floor(Math.random() * 30) + 10;
+    if (memoryuse > this.memory) {
+      Swal.fire({
+        icon: "error",
+        title: "Insufficient Memory",
+        text: `Available Memory: ${this.memory}`
+      });
+      return;
+    }
+  
     if (this.processes.length < this.maxSize) {
-      const burstTime = Math.floor(Math.random() * 11) + 5;
-      const memoryuse = Math.floor(Math.random()*30)+1;
       const process = {
-        process: "Process " + num,
+        process: "Process " + this.num,
         arrival: this.clock,
         burstTime: burstTime,
         waitting: 0,
@@ -30,10 +40,16 @@ class Model {
         iostatus: "",
       };
       this.processes.push(process);
+      this.num++;
     } else {
-      console.log('ไม่สามารถเพิ่มข้อมูลได้ เนื่องจากเกินขนาดสูงสุดที่กำหนด');
+      Swal.fire({
+        icon: "error",
+        title: "Job Queue is full",
+        text: "Limit 16/16"
+      });
     }
   }
+  
   getProcesses() {
     return this.processes;
   }
@@ -51,6 +67,10 @@ class Model {
   }
   getReadyQ() {
     return this.readyQ;
+  }
+  getRunning(){
+    const runProcesses = this.processes.filter(process => process.status === "Running");
+    return runProcesses
   }
   // 
   updateStatus() {
@@ -96,7 +116,7 @@ class Model {
             process.status = "Terminate";
             process.burstTime = process.burststart;
             this.terminate.push(process);
-            this.processes.splice(index, 1);
+            this.processes.splice(index,1);
           }
         } else {
           process.burstTime--;
@@ -105,16 +125,28 @@ class Model {
     }
   }
   addioQ() {
+    const ioQLimit = 4;
+    let addedProcesses = 0;
     if (this.processes.length > 0) {
       this.processes.forEach(process => {
         if (process.status === "Running") {
-          process.status = "Waiting";
-          process.iostatus = "Ready"
-          this.ioQ.push(process);
+          if (this.ioQ.length < ioQLimit) {
+            process.status = "Waiting";
+            process.iostatus = "Ready";
+            this.ioQ.push(process);
+            addedProcesses++;
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "IO Queue is full",
+              text: "Limit 4/4"
+            });
+          }
         }
       });
     }
   }
+  
   closeioQ() {
     if (this.ioQ.length >= 1) {
       const runningProcess = this.ioQ.find(process => process.iostatus === "Running");
@@ -122,7 +154,7 @@ class Model {
         runningProcess.iostatus = "";
         const indexInProcesses = this.processes.findIndex(process => process.process === runningProcess.process);
         if (indexInProcesses !== -1) {
-          this.processes[indexInProcesses].status = "New";
+          this.processes[indexInProcesses].status = "Ready";
         }
         this.ioQ.shift();
       }
@@ -146,7 +178,7 @@ class Model {
     }
   }
   getio() {
-    return this.ioQ;
+    return this.ioQ
   }
   getterminate(){
     return this.terminate

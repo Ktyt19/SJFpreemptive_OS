@@ -6,17 +6,12 @@ class Controller {
 
   addProcess(num) {
     this.model.addProcess(num);
-    this.view.renderProcesses(this.model.getProcesses());
+    this.view.renderProcesses(this.model.getProcesses(),this.model.getRunning());
     this.model.calculateMemoryUsage();
-    this.view.renderClock(this.model.clock);
-
   }
   addIO(){
     this.model.addioQ();
-    this.view.renderioQ(this.model.getioQ());
-    // this.model.updateStatus();
-    // this.model.updateStatusIO();
-
+    this.view.renderioQ(this.model.getio());
   }
   closeio(){
     this.model.closeioQ()
@@ -26,17 +21,16 @@ class Controller {
       this.model.run();
       this.model.updateStatus()
       this.model.updateClock();
-      this.model.addReadyQ();
-      this.view.renderProcesses(this.model.getProcesses());
-      this.view.renderReady(this.model.getReadyQ())
       this.view.renderClock(this.model.clock);
+      this.model.addReadyQ();
+      this.view.renderProcesses(this.model.getProcesses(),this.model.getRunning());
+      this.view.renderReady(this.model.getReadyQ())
       this.view.rendermemory(this.model.memory);
       this.model.updateStatusIO();
       this.view.renderio(this.model.getio());
       this.view.renderioQ(this.model.getio());
       this.view.renderterminate(this.model.getterminate())
       this.view.rendercontroler(this.model.getterminate())
-
     },1000);
   }
 }
